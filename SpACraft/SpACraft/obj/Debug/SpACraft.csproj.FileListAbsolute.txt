@@ -1,0 +1,10 @@
+C:\Users\Gerald\SpACraft\SpACraft\SpACraft\bin\Debug\SpACraft.dll
+C:\Users\Gerald\SpACraft\SpACraft\SpACraft\bin\Debug\SpACraft.pdb
+C:\Users\Gerald\SpACraft\SpACraft\SpACraft\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Gerald\SpACraft\SpACraft\SpACraft\obj\Debug\SpACraft.dll
+C:\Users\Gerald\SpACraft\SpACraft\SpACraft\obj\Debug\SpACraft.pdb
+C:\Users\Matt\SPAcraft\SpACraft\SpACraft\bin\Debug\SpACraft.dll
+C:\Users\Matt\SPAcraft\SpACraft\SpACraft\bin\Debug\SpACraft.pdb
+C:\Users\Matt\SPAcraft\SpACraft\SpACraft\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Matt\SPAcraft\SpACraft\SpACraft\obj\Debug\SpACraft.dll
+C:\Users\Matt\SPAcraft\SpACraft\SpACraft\obj\Debug\SpACraft.pdb

@@ -1,0 +1,12 @@
+C:\Users\Gerald\SpACraft\SpACraft\ServerCLI\bin\Debug\ServerCLI.exe
+C:\Users\Gerald\SpACraft\SpACraft\ServerCLI\bin\Debug\ServerCLI.pdb
+C:\Users\Gerald\SpACraft\SpACraft\ServerCLI\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Gerald\SpACraft\SpACraft\ServerCLI\obj\x86\Debug\ServerCLI.exe
+C:\Users\Gerald\SpACraft\SpACraft\ServerCLI\obj\x86\Debug\ServerCLI.pdb
+C:\Users\Matt\SPAcraft\SpACraft\ServerCLI\obj\x86\Debug\ServerCLI.exe
+C:\Users\Matt\SPAcraft\SpACraft\ServerCLI\obj\x86\Debug\ServerCLI.pdb
+C:\Users\Matt\SPAcraft\SpACraft\ServerCLI\bin\Debug\ServerCLI.exe
+C:\Users\Matt\SPAcraft\SpACraft\ServerCLI\bin\Debug\ServerCLI.pdb
+C:\Users\Matt\SPAcraft\SpACraft\ServerCLI\bin\Debug\SpACraft.dll
+C:\Users\Matt\SPAcraft\SpACraft\ServerCLI\bin\Debug\SpACraft.pdb
+C:\Users\Matt\SPAcraft\SpACraft\ServerCLI\obj\x86\Debug\ResolveAssemblyReference.cache
