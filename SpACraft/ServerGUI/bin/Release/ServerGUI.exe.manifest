@@ -49,7 +49,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>K8j4Gx77D8IB8fyaucv7T3kfmbI=</dsig:DigestValue>
+        <dsig:DigestValue>a0DYRyu2Pa97mQUjJ+YDYLaPb5U=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -77,22 +77,13 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="ServerGUI.exe.config" size="144">
+  <file name="ServerGUI.exe.config" size="141">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>cpzNzlRjZspwKGLNlX6RAlU3880=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="TryVisualStudioProfessional.ico" size="58234">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>aJSY57gvit48Fq75tdiy+Z+0oPQ=</dsig:DigestValue>
+      <dsig:DigestValue>dZFxrC6iVI5YGbM5q/fROBzin+s=</dsig:DigestValue>
     </hash>
   </file>
   <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">

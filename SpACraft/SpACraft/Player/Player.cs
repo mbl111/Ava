@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using SpACraft.Utils;
 
-namespace SpACraft.Player
+namespace SpACraft
 {
-    public class Player : IClassy
+    public partial class Player : IClassy
     {
         public string ClassyName
         {

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SpACraft
 {
-    class SpACraft
+    public class SpACraft
     {
         public static String version = "0.1";
     }

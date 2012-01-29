@@ -8,6 +8,8 @@ using System.Text;
 using System.Windows.Forms;
 using SpACraft.Player;
 using SpACraft;
+using System.Threading;
+using SpACraft.Events;
 
 namespace ServerGUI
 {
@@ -16,18 +18,76 @@ namespace ServerGUI
         volatile bool shutdownPending, startupComplete, shutdownComplete;
         const int MaxLinesInLog = 2000;
 
-        string version = "0.1";
-
         public MainForm()
         {
             InitializeComponent();
         }
 
         #region startup
+        Thread startupThread;
 
         #endregion
 
         #region shutdown
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            if (startupThread != null && !shutdownComplete)
+            {
+                Shutdown(SpACraft.Server.ShutdownReason.ProcessClosing, true);
+                e.Cancel = true;
+            }
+            else
+            {
+                base.OnFormClosing(e);
+            }
+        }
+
+
+        void Shutdown(SpACraft.Server.ShutdownReason reason, bool quit)
+        {
+            if (shutdownPending) return;
+            shutdownPending = true;
+            ConsoleInput.Enabled = false;
+            ConsoleInput.Text = "Shutting down...";
+            Text = "SpACraft " + SpACraft.SpACraft.version + " - shutting down...";
+            this.ServerURL.Enabled = false;
+            if (!startupComplete)
+            {
+                startupThread.Join();
+            }
+            //Server.Shutdown(new SpACraft.Server.ShutdownParams(reason, TimeSpan.Zero, quit, false), false);
+        }
+
+
+        void OnServerShutdownEnded(object sender, ShutdownEventArgs e)
+        {
+            try
+            {
+                BeginInvoke((Action)delegate
+                {
+                    shutdownComplete = true;
+                    switch (e.ShutdownParams.Reason)
+                    {
+                        case SpACraft.Server.ShutdownReason.FailedToInitialize:
+                        case SpACraft.Server.ShutdownReason.FailedToStart:
+                        case SpACraft.Server.ShutdownReason.Crashed:
+                            //if (Server.HasArg(ArgKey.ExitOnCrash))
+                            //{
+                            //    Application.Exit();
+                            //}
+                            break;
+                        default:
+                            Application.Exit();
+                            break;
+                    }
+                });
+            }
+            catch (ObjectDisposedException)
+            {
+            }
+            catch (InvalidOperationException) { }
+        }
 
         #endregion
 
@@ -57,7 +117,7 @@ namespace ServerGUI
 
         public void ChangeHeartBeatUri(String newUri)
         {
-
+            ServerURL.Text = newUri;
         }
 
         public void ChangePlayerList(Player[] newPlayers)
@@ -82,7 +142,7 @@ namespace ServerGUI
                     }else if (line.Equals("/About", StringComparison.OrdinalIgnoreCase) || line.Equals("/Credits", StringComparison.OrdinalIgnoreCase))
                     {
                         logMessage("Showing credits...", true);
-                        About box = new About(version);
+                        About box = new About(SpACraft.SpACraft.version);
                         box.ShowDialog();
                     }
                     else if (line.Equals("/Help", StringComparison.OrdinalIgnoreCase))
@@ -116,30 +176,6 @@ namespace ServerGUI
 #endif
             }
             ConsoleInput.Text = "";
-        }
-
-        private void ServerURL_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (!shutdownComplete)
-            {
-                MessageBox.Show("Server still running!", "Warning");
-                e.Cancel = true;
-            }else
-            if (!shutdownComplete || !shutdownPending)
-            {
-                MessageBox.Show("Server is shutting down!", "Warning");
-                e.Cancel = true;
-            }
         }
     }
 }
