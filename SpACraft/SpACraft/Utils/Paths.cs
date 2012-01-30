@@ -1,5 +1,4 @@
-﻿// Copyright 2009-2012 Matvei Stefarov <me@matvei.org>
-using System;
+﻿using System;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -8,7 +7,6 @@ using JetBrains.Annotations;
 
 namespace SpACraft
 {
-    /// <summary> Contains fCraft path settings, and some filesystem-related utilities. </summary>
     public static class Paths
     {
 
@@ -72,21 +70,12 @@ namespace SpACraft
 
         public static readonly string WorkingPathDefault;
 
-        /// <summary> Path to save maps to (default: .\maps)
-        /// Can be overridden at startup via command-line argument "--mappath=",
-        /// or via "MapPath" ConfigKey </summary>
         public static string MapPath { get; set; }
 
-        /// <summary> Working path (default: whatever directory fCraft.dll is located in)
-        /// Can be overridden at startup via command line argument "--path=" </summary>
         public static string WorkingPath { get; set; }
 
-        /// <summary> Path to save logs to (default: .\logs)
-        /// Can be overridden at startup via command-line argument "--logpath=" </summary>
         public static string LogPath { get; set; }
 
-        /// <summary> Path to load/save config to/from (default: .\config.xml)
-        /// Can be overridden at startup via command-line argument "--config=" </summary>
         public static string ConfigFileName { get; set; }
 
 
@@ -123,7 +112,6 @@ namespace SpACraft
             get { return Path.Combine(WorkingPath, RulesDirectory); }
         }
 
-        /// <summary> Path where map backups are stored </summary>
         public static string BackupPath
         {
             get
@@ -161,11 +149,6 @@ namespace SpACraft
         }
 
 
-        /// <summary> Makes sure that the path format is valid, that it exists, that it is accessible and writeable. </summary>
-        /// <param name="pathLabel"> Name of the path that's being tested (e.g. "map path"). Used for logging. </param>
-        /// <param name="path"> Full or partial path. </param>
-        /// <param name="checkForWriteAccess"> If set, tries to write to the given directory. </param>
-        /// <returns> Full path of the directory (on success) or null (on failure). </returns>
         public static bool TestDirectory([NotNull] string pathLabel, [NotNull] string path, bool checkForWriteAccess)
         {
             if (pathLabel == null) throw new ArgumentNullException("pathLabel");
@@ -221,14 +204,6 @@ namespace SpACraft
         }
 
 
-        /// <summary> Makes sure that the path format is valid, and optionally whether it is readable/writeable. </summary>
-        /// <param name="fileLabel"> Name of the path that's being tested (e.g. "map path"). Used for logging. </param>
-        /// <param name="filename"> Full or partial path of the file. </param>
-        /// <param name="createIfDoesNotExist"> If target file is missing and this option is OFF, TestFile returns true.
-        /// If target file is missing and this option is ON, TestFile tries to create
-        /// a file and returns whether it succeeded. </param>
-        /// <param name="neededAccess"> If file is present, type of access to test. </param>
-        /// <returns> Whether target file passed all tests. </returns>
         public static bool TestFile([NotNull] string fileLabel, [NotNull] string filename,
                                     bool createIfDoesNotExist, FileAccess neededAccess)
         {
@@ -296,7 +271,6 @@ namespace SpACraft
         }
 
 
-        /// <summary>Returns true if paths or filenames reference the same location (accounts for all the filesystem quirks).</summary>
         public static bool Compare([NotNull] string p1, [NotNull] string p2)
         {
             if (p1 == null) throw new ArgumentNullException("p1");
@@ -305,7 +279,6 @@ namespace SpACraft
         }
 
 
-        /// <summary>Returns true if paths or filenames reference the same location (accounts for all the filesystem quirks).</summary>
         public static bool Compare([NotNull] string p1, [NotNull] string p2, bool caseSensitive)
         {
             if (p1 == null) throw new ArgumentNullException("p1");
@@ -337,10 +310,6 @@ namespace SpACraft
         }
 
 
-        /// <summary> Checks whether childPath is inside parentPath </summary>
-        /// <param name="parentPath">Path that is supposed to contain childPath</param>
-        /// <param name="childPath">Path that is supposed to be contained within parentPath</param>
-        /// <returns>true if childPath is contained within parentPath</returns>
         public static bool Contains([NotNull] string parentPath, [NotNull] string childPath)
         {
             if (parentPath == null) throw new ArgumentNullException("parentPath");
@@ -349,11 +318,6 @@ namespace SpACraft
         }
 
 
-        /// <summary> Checks whether childPath is inside parentPath </summary>
-        /// <param name="parentPath"> Path that is supposed to contain childPath </param>
-        /// <param name="childPath"> Path that is supposed to be contained within parentPath </param>
-        /// <param name="caseSensitive"> Whether check should be case-sensitive or case-insensitive. </param>
-        /// <returns> true if childPath is contained within parentPath </returns>
         public static bool Contains([NotNull] string parentPath, [NotNull] string childPath, bool caseSensitive)
         {
             if (parentPath == null) throw new ArgumentNullException("parentPath");
@@ -365,10 +329,6 @@ namespace SpACraft
         }
 
 
-        /// <summary> Checks whether the file exists in a specified way (case-sensitive or case-insensitive) </summary>
-        /// <param name="fileName"> filename in question </param>
-        /// <param name="caseSensitive"> Whether check should be case-sensitive or case-insensitive. </param>
-        /// <returns> true if file exists, otherwise false </returns>
         public static bool FileExists([NotNull] string fileName, bool caseSensitive)
         {
             if (fileName == null) throw new ArgumentNullException("fileName");
@@ -383,10 +343,6 @@ namespace SpACraft
         }
 
 
-        /// <summary>Checks whether the file exists in a specified way (case-sensitive or case-insensitive)</summary>
-        /// <param name="fileInfo">FileInfo object in question</param>
-        /// <param name="caseSensitive">Whether check should be case-sensitive or case-insensitive.</param>
-        /// <returns>true if file exists, otherwise false</returns>
         public static bool Exists([NotNull] this FileInfo fileInfo, bool caseSensitive)
         {
             if (fileInfo == null) throw new ArgumentNullException("fileInfo");
@@ -404,9 +360,6 @@ namespace SpACraft
         }
 
 
-        /// <summary> Allows making changes to filename capitalization on case-insensitive filesystems. </summary>
-        /// <param name="originalFullFileName"> Full path to the original filename </param>
-        /// <param name="newFileName"> New file name (do not include the full path) </param>
         public static void ForceRename([NotNull] string originalFullFileName, [NotNull] string newFileName)
         {
             if (originalFullFileName == null) throw new ArgumentNullException("originalFullFileName");
@@ -420,9 +373,6 @@ namespace SpACraft
         }
 
 
-        /// <summary> Find files that match the name in a case-insensitive way. </summary>
-        /// <param name="fullFileName"> Case-insensitive filename to look for. </param>
-        /// <returns> Array of matches. Empty array if no files matches. </returns>
         public static FileInfo[] FindFiles([NotNull] string fullFileName)
         {
             if (fullFileName == null) throw new ArgumentNullException("fullFileName");

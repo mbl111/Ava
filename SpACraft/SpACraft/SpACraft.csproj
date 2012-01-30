@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Network\Heartbeat.cs" />
     <Compile Include="Player\Player.cs" />
     <Compile Include="Player\Player.Events.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

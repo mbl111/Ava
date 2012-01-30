@@ -6,9 +6,10 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Threading;
+using System.Diagnostics;
 using SpACraft.Player;
 using SpACraft;
-using System.Threading;
 using SpACraft.Events;
 
 namespace ServerGUI
@@ -21,20 +22,115 @@ namespace ServerGUI
         public MainForm()
         {
             InitializeComponent();
+            Shown += StartUp;
+            ConsoleInput.OnCommand += console_Enter;
         }
 
-        #region startup
+
+        #region Startup
         Thread startupThread;
+
+        void StartUp(object sender, EventArgs a)
+        {
+            Logger.Logged += OnLogged;
+            Heartbeat.UriChanged += OnHeartbeatUriChanged;
+            Server.PlayerListChanged += OnPlayerListChanged;
+            Server.ShutdownEnded += OnServerShutdownEnded;
+            Text = "SpACRaft " + SpACraft.SpACraft.version + " - starting...";
+            startupThread = new Thread(StartupThread);
+            startupThread.Name = "fCraft ServerGUI Startup";
+            startupThread.Start();
+        }
+
+
+        void StartupThread()
+        {
+#if !DEBUG
+            try
+            {
+#endif
+                Server.InitLibrary(Environment.GetCommandLineArgs());
+                if (shutdownPending) return;
+
+                Server.InitServer();
+                if (shutdownPending) return;
+
+                BeginInvoke((Action)OnInitSuccess);
+
+                //UpdaterResult update = Updater.CheckForUpdates();
+                if (shutdownPending) return;
+
+                //if (update.UpdateAvailable)
+                //{
+                //    new UpdateWindow(update, false).ShowDialog();
+                //}
+
+                if (!ConfigKey.ProcessPriority.IsBlank())
+                {
+                    try
+                    {
+                        Process.GetCurrentProcess().PriorityClass = ConfigKey.ProcessPriority.GetEnum<ProcessPriorityClass>();
+                    }
+                    catch (Exception)
+                    {
+                        Logger.Log(LogType.Warning,
+                                    "MainForm.StartServer: Could not set process priority, using defaults.");
+                    }
+                }
+
+                if (shutdownPending) return;
+                if (Server.StartServer())
+                {
+                    startupComplete = true;
+                    BeginInvoke((Action)OnStartupSuccess);
+                }
+                else
+                {
+                    BeginInvoke((Action)OnStartupFailure);
+                }
+#if !DEBUG
+            }
+            catch (Exception ex)
+            {
+                Logger.LogAndReportCrash("Unhandled exception in ServerGUI.StartUp", "ServerGUI", ex, true);
+                Shutdown(ShutdownReason.Crashed, Server.HasArg(ArgKey.ExitOnCrash));
+            }
+#endif
+        }
+
+
+        void OnInitSuccess()
+        {
+            Text = "SpACraft " + SpACraft.SpACraft.version + " - " + ConfigKey.ServerName.GetString();
+        }
+
+
+        void OnStartupSuccess()
+        {
+            if (!ConfigKey.HeartbeatEnabled.Enabled())
+            {
+                ServerURL.Text = "Heartbeat disabled. See externalurl.txt";
+            }
+            ConsoleOutput.Enabled = true;
+            ConsoleOutput.Text = "";
+        }
+
+
+        void OnStartupFailure()
+        {
+            Shutdown(ShutdownReason.FailedToStart, Server.HasArg(ArgKey.ExitOnCrash));
+        }
 
         #endregion
 
-        #region shutdown
+
+        #region Shutdown
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             if (startupThread != null && !shutdownComplete)
             {
-                Shutdown(SpACraft.Server.ShutdownReason.ProcessClosing, true);
+                Shutdown(ShutdownReason.ProcessClosing, true);
                 e.Cancel = true;
             }
             else
@@ -44,19 +140,19 @@ namespace ServerGUI
         }
 
 
-        void Shutdown(SpACraft.Server.ShutdownReason reason, bool quit)
+        void Shutdown(ShutdownReason reason, bool quit)
         {
             if (shutdownPending) return;
             shutdownPending = true;
-            ConsoleInput.Enabled = false;
-            ConsoleInput.Text = "Shutting down...";
+            ConsoleOutput.Enabled = false;
+            ConsoleOutput.Text = "Shutting down...";
             Text = "SpACraft " + SpACraft.SpACraft.version + " - shutting down...";
-            this.ServerURL.Enabled = false;
+            ServerURL.Enabled = false;
             if (!startupComplete)
             {
                 startupThread.Join();
             }
-            //Server.Shutdown(new SpACraft.Server.ShutdownParams(reason, TimeSpan.Zero, quit, false), false);
+            Server.Shutdown(new ShutdownParams(reason, TimeSpan.Zero, quit, false), false);
         }
 
 
@@ -72,10 +168,10 @@ namespace ServerGUI
                         case SpACraft.Server.ShutdownReason.FailedToInitialize:
                         case SpACraft.Server.ShutdownReason.FailedToStart:
                         case SpACraft.Server.ShutdownReason.Crashed:
-                            //if (Server.HasArg(ArgKey.ExitOnCrash))
-                            //{
-                            //    Application.Exit();
-                            //}
+                            if (Server.HasArg(ArgKey.ExitOnCrash))
+                            {
+                                Application.Exit();
+                            }
                             break;
                         default:
                             Application.Exit();
@@ -91,23 +187,30 @@ namespace ServerGUI
 
         #endregion
 
-        public void logMessage(String message, Boolean toConsole)
+
+        public void OnLogged(object sender, LogEventArgs e)
         {
-            if (!toConsole) return;
+            if (!e.WriteToConsole) return;
             try
             {
                 if (shutdownComplete) return;
-                ConsoleOutput.AppendText(message + Environment.NewLine);
-                if (ConsoleOutput.Lines.Length > MaxLinesInLog)
+                if (ConsoleOutput.InvokeRequired)
                 {
-                    ConsoleOutput.Text = "----- cut off, see fCraft.log for complete log -----" +
-                        Environment.NewLine +
-                        ConsoleOutput.Text.Substring(ConsoleOutput.GetFirstCharIndexFromLine(50));
+                    BeginInvoke((EventHandler<LogEventArgs>)OnLogged, sender, e);
                 }
-                ConsoleOutput.SelectionStart = ConsoleOutput.Text.Length;
-                ConsoleOutput.ScrollToCaret();
-                //if (!Server.IsRunning || shutdownPending) ConsoleOutput.Refresh();
-
+                else
+                {
+                    ConsoleOutput.AppendText(e.Message + Environment.NewLine);
+                    if (ConsoleOutput.Lines.Length > MaxLinesInLog)
+                    {
+                        ConsoleOutput.Text = "----- cut off, see SpACraft.log for complete log -----" +
+                            Environment.NewLine +
+                            ConsoleOutput.Text.Substring(ConsoleOutput.GetFirstCharIndexFromLine(50));
+                    }
+                    ConsoleOutput.SelectionStart = ConsoleOutput.Text.Length;
+                    ConsoleOutput.ScrollToCaret();
+                    if (!Server.IsRunning || shutdownPending) ConsoleOutput.Refresh();
+                }
             }
             catch (ObjectDisposedException)
             {
@@ -115,55 +218,78 @@ namespace ServerGUI
             catch (InvalidOperationException) { }
         }
 
-        public void ChangeHeartBeatUri(String newUri)
+
+        public void OnHeartbeatUriChanged(object sender, UriChangedEventArgs e)
         {
-            ServerURL.Text = newUri;
+            try
+            {
+                if (shutdownPending) return;
+                if (ServerURL.InvokeRequired)
+                {
+                    BeginInvoke((EventHandler<UriChangedEventArgs>)OnHeartbeatUriChanged,
+                            sender, e);
+                }
+                else
+                {
+                    ServerURL.Text = e.NewUri.ToString();
+                    ServerURL.Enabled = true;
+                    btnPlay.Enabled = true;
+                }
+            }
+            catch (ObjectDisposedException)
+            {
+            }
+            catch (InvalidOperationException) { }
         }
 
-        public void ChangePlayerList(Player[] newPlayers)
-        {
 
+        public void OnPlayerListChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (shutdownPending) return;
+                if (onlinePlayers.InvokeRequired)
+                {
+                    BeginInvoke((EventHandler)OnPlayerListChanged, null, EventArgs.Empty);
+                }
+                else
+                {
+                    onlinePlayers.Items.Clear();
+                    Player[] playerListCache = Server.onlinePlayers.OrderBy(p => p.Info.Rank.Index).ToArray();
+                    foreach (Player player in playerListCache)
+                    {
+                        onlinePlayers.Items.Add(player.Info.Rank.Name + " - " + player.Name);
+                    }
+                }
+            }
+            catch (ObjectDisposedException)
+            {
+            }
+            catch (InvalidOperationException) { }
         }
 
-        public void ConsoleInput_OnCommand()
+
+        private void console_Enter()
         {
             string[] separator = { Environment.NewLine };
-            string[] lines = ConsoleInput.Text.Trim().Split(separator, StringSplitOptions.RemoveEmptyEntries);
+            string[] lines = ConsoleOutput.Text.Trim().Split(separator, StringSplitOptions.RemoveEmptyEntries);
             foreach (string line in lines)
             {
 #if !DEBUG
                 try
                 {
 #endif
-                    if (line.Equals("/Clear", StringComparison.OrdinalIgnoreCase))
+                    if (line.Equals("/clear", StringComparison.OrdinalIgnoreCase))
                     {
                         ConsoleOutput.Clear();
-                        logMessage("Cleared console!", true);
-                    }else if (line.Equals("/About", StringComparison.OrdinalIgnoreCase) || line.Equals("/Credits", StringComparison.OrdinalIgnoreCase))
-                    {
-                        logMessage("Showing credits...", true);
-                        About box = new About(SpACraft.SpACraft.version);
-                        box.ShowDialog();
                     }
-                    else if (line.Equals("/Help", StringComparison.OrdinalIgnoreCase))
+                    else if (line.Equals("/credits", StringComparison.OrdinalIgnoreCase))
                     {
-                        logMessage("------------Help----------", true);
-                        logMessage("/clear - Clear the console",true);
-                        logMessage("/credits - Show the credits window", true);
-                        //temp^
-                    }
-                    else if (line.Equals("/stop", StringComparison.OrdinalIgnoreCase))
-                    {
-                        logMessage("Stopping the server...", true);
-                        shutdownComplete = true;
-                        shutdownPending = true;
-                        
-                        //temp^
+                        new About(SpACraft.SpACraft.version).Show();
                     }
                     else
                     {
-                        // TODO
-                        //Player.Console.ParseMessage(line, true);
+                        Player.Console.ParseMessage(line, true);
                     }
 #if !DEBUG
                 }
@@ -175,7 +301,19 @@ namespace ServerGUI
                 }
 #endif
             }
-            ConsoleInput.Text = "";
+            ConsoleOutput.Text = "";
+        }
+
+        private void btnPlay_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Process.Start(btnPlay.Text);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Could not open server URL. Please copy/paste it manually.");
+            }
         }
     }
 }

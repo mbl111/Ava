@@ -28,7 +28,7 @@ namespace SpACraft
         const string DefaultLogFileName = "SpACraft.log",
                      LongDateFormat = "yyyy'-'MM'-'dd'_'HH'-'mm'-'ss",
                      ShortDateFormat = "yyyy'-'MM'-'dd";
-        static readonly Uri CrashReportUri = new Uri("http://www.fcraft.net/crashreport.php");
+        static readonly Uri CrashReportUri = new Uri("http://www.specialattack.net/crashreport.php");
         public static LogSplittingType SplittingType = LogSplittingType.OneFile;
 
         static readonly string SessionStart = DateTime.Now.ToString(LongDateFormat); // localized
@@ -282,7 +282,7 @@ namespace SpACraft
 
                     if (responseString != null && responseString.StartsWith("ERROR"))
                     {
-                        Log(LogType.Error, "Crash report could not be processed by fCraft.net.");
+                        Log(LogType.Error, "Crash report could not be processed by SpACraft.net.");
                     }
                     else
                     {

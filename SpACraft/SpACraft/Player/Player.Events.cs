@@ -1,5 +1,4 @@
-﻿// Copyright 2009-2012 Matvei Stefarov <me@matvei.org>
-using System;
+﻿using System;
 using System.Net;
 using SpACraft.Events;
 using JetBrains.Annotations;
@@ -8,74 +7,47 @@ namespace SpACraft
 {
     partial class Player
     {
-        /// <summary> Occurs when a player is connecting (cancellable).
-        /// Player name is verified and bans are checked before this event is raised. </summary>
         public static event EventHandler<PlayerConnectingEventArgs> Connecting;
 
 
-        /// <summary> Occurs when a player has connected, but before the player has joined any world.
-        /// Allows changing the player's starting world. </summary>
         public static event EventHandler<PlayerConnectedEventArgs> Connected;
 
 
-        /// <summary> Occurs after a player has connected and joined the starting world. </summary>
         public static event EventHandler<PlayerEventArgs> Ready;
 
 
-        /// <summary> Occurs when player is about to move (cancellable). </summary>
         public static event EventHandler<PlayerMovingEventArgs> Moving;
 
 
-        /// <summary> Occurs when player has moved. </summary>
         public static event EventHandler<PlayerMovedEventArgs> Moved;
 
 
-        /// <summary> Occurs when player clicked a block (cancellable).
-        /// Note that a click will not necessarily result in a block being placed or deleted. </summary>
         public static event EventHandler<PlayerClickingEventArgs> Clicking;
 
 
-        /// <summary> Occurs after a player has clicked a block.
-        /// Note that a click will not necessarily result in a block being placed or deleted. </summary>
         public static event EventHandler<PlayerClickedEventArgs> Clicked;
 
 
-        /// <summary> Occurs when a player is about to place a block.
-        /// Permission checks are done before calling this event, and their result may be overridden. </summary>
         public static event EventHandler<PlayerPlacingBlockEventArgs> PlacingBlock;
 
 
-        /// <summary>  Occurs when a player has placed a block.
-        /// This event does not occur if the block placement was disallowed. </summary>
         public static event EventHandler<PlayerPlacedBlockEventArgs> PlacedBlock;
 
 
-        /// <summary> Occurs before a player is kicked (cancellable). 
-        /// Kick may be caused by /Kick, /Ban, /BanIP, or /BanAll commands, or by idling.
-        /// Callbacks may override whether the kick will be announced or recorded in PlayerDB. </summary>
         public static event EventHandler<PlayerBeingKickedEventArgs> BeingKicked;
 
 
-        /// <summary> Occurs after a player has been kicked. Specifically, it happens after
-        /// kick has been announced and recorded to PlayerDB (if applicable), just before the
-        /// target player disconnects.
-        /// Kick may be caused by /Kick, /Ban, /BanIP, or /BanAll commands, or by idling. </summary>
         public static event EventHandler<PlayerKickedEventArgs> Kicked;
 
-
-        /// <summary> Happens after a player has hidden or unhidden. </summary>
         public static event EventHandler<PlayerEventArgs> HideChanged;
 
 
-        /// <summary> Occurs when a player disconnects. </summary>
         public static event EventHandler<PlayerDisconnectedEventArgs> Disconnected;
 
 
-        /// <summary> Occurs when a player intends to join a world (cancellable). </summary>
         public static event EventHandler<PlayerJoiningWorldEventArgs> JoiningWorld;
 
 
-        /// <summary> Occurs after a player has joined a world. </summary>
         public static event EventHandler<PlayerJoinedWorldEventArgs> JoinedWorld;
 
 
@@ -336,7 +308,6 @@ namespace SpACraft.Events
         public Player Player { get; private set; }
         public Vector3I Coords { get; set; }
         public Block Block { get; set; }
-        /// <summary> Whether the player is building a block (right-click) or deleting it (left-click). </summary>
         public ClickAction Action { get; set; }
         public bool Cancel { get; set; }
     }
@@ -429,25 +400,19 @@ namespace SpACraft.Events
             Context = context;
         }
 
-        /// <summary> Player who is being kicked. </summary>
         [NotNull]
         public Player Player { get; private set; }
 
-        /// <summary> Player who kicked. </summary>
         [NotNull]
         public Player Kicker { get; protected set; }
 
-        /// <summary> Given kick reason (may be blank). </summary>
         [CanBeNull]
         public string Reason { get; protected set; }
 
-        /// <summary> Whether the kick should be announced in-game and on IRC. </summary>
         public bool Announce { get; private set; }
 
-        /// <summary> Whether kick should be added to the target's record. </summary>
         public bool RecordToPlayerDB { get; protected set; }
 
-        /// <summary> Circumstances that resulted in a kick (e.g. Kick, Ban, BanIP, IdleKick, etc). </summary>
         public LeaveReason Context { get; protected set; }
     }
 
