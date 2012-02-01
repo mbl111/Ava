@@ -328,7 +328,7 @@ namespace ServerGUI
 
         private void Player_Profile_Click(object sender, EventArgs e)
         {
-            ProfileViewer viewer = new ProfileViewer();
+            ProfileViewer viewer = new ProfileViewer(Server);
         }
 
         private void button1_Click(object sender, EventArgs e)
