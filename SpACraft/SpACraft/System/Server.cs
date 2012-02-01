@@ -253,7 +253,7 @@ namespace SpACraft
 #else
                 throw new Exception(unstableMessage);
 #endif
-            }
+            
 
             if (MonoCompat.IsMono && !MonoCompat.IsSGenCapable)
             {

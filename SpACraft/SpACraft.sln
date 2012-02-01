@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+# Visual C# Express 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerCLI", "ServerCLI\ServerCLI.csproj", "{EDDDA912-43A8-4ACE-A390-8FC2D67B8F90}"
 	ProjectSection(ProjectDependencies) = postProject
 		{825B48E9-D792-44B9-A68E-D0EBE817042C} = {825B48E9-D792-44B9-A68E-D0EBE817042C}
@@ -14,6 +14,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpACraft", "SpACraft\SpACraft.csproj", "{825B48E9-D792-44B9-A68E-D0EBE817042C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpACraftGUI", "SpACraftGUI\SpACraftGUI.csproj", "{365DD306-08FF-47DF-A38B-EAAE062FA3F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigGUI", "ConfigGUI\ConfigGUI.csproj", "{56448383-28D2-4C52-9CFB-C69E80ECCE28}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,6 +67,16 @@ Global
 		{365DD306-08FF-47DF-A38B-EAAE062FA3F7}.Release|Mixed Platforms.Build.0 = Release|x86
 		{365DD306-08FF-47DF-A38B-EAAE062FA3F7}.Release|x86.ActiveCfg = Release|x86
 		{365DD306-08FF-47DF-A38B-EAAE062FA3F7}.Release|x86.Build.0 = Release|x86
+		{56448383-28D2-4C52-9CFB-C69E80ECCE28}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{56448383-28D2-4C52-9CFB-C69E80ECCE28}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{56448383-28D2-4C52-9CFB-C69E80ECCE28}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{56448383-28D2-4C52-9CFB-C69E80ECCE28}.Debug|x86.ActiveCfg = Debug|x86
+		{56448383-28D2-4C52-9CFB-C69E80ECCE28}.Debug|x86.Build.0 = Debug|x86
+		{56448383-28D2-4C52-9CFB-C69E80ECCE28}.Release|Any CPU.ActiveCfg = Release|x86
+		{56448383-28D2-4C52-9CFB-C69E80ECCE28}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{56448383-28D2-4C52-9CFB-C69E80ECCE28}.Release|Mixed Platforms.Build.0 = Release|x86
+		{56448383-28D2-4C52-9CFB-C69E80ECCE28}.Release|x86.ActiveCfg = Release|x86
+		{56448383-28D2-4C52-9CFB-C69E80ECCE28}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -5,8 +5,6 @@ using System.Text;
 
 namespace SpACraft.Utils
 {
-    class Color
-    {
         /// <summary> Static class with definitions of Minecraft color codes,
         /// parsers, converters, and utilities. </summary>
         public static class Color
@@ -264,7 +262,7 @@ namespace SpACraft.Utils
                 return (code >= '0' && code <= '9') || (code >= 'a' && code <= 'f') || (code >= 'A' && code <= 'F');
             }
 
-            public static void ReplacePercentCodes([NotNull] StringBuilder sb)
+            public static void ReplacePercentCodes(StringBuilder sb)
             {
                 if (sb == null) throw new ArgumentNullException("sb");
                 sb.Replace("%0", "&0");
@@ -438,4 +436,3 @@ namespace SpACraft.Utils
             Silver
         }
     }
-}

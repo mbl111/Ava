@@ -98,7 +98,6 @@ namespace SpACraft
                 {
                     displayedName = Info.Rank.Color + displayedName;
                 }
-                if 
                 return displayedName;
             }
         }
