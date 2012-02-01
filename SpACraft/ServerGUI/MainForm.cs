@@ -316,6 +316,26 @@ namespace ServerGUI
             }
         }
 
+        private void onlinePlayers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void About_Click_1(object sender, EventArgs e)
+        {
+            new About(SpACraft.SpACraft.version).Show();
+        }
+
+        private void Player_Profile_Click(object sender, EventArgs e)
+        {
+            new ProfileViewer(onlinePlayers.GetSelected);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            new MapViewer();
+        }
+
         
     }
 }

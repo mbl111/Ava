@@ -35,6 +35,10 @@
             this.ConsoleOutput = new System.Windows.Forms.TextBox();
             this.ConsoleInput = new SpACraft.ServerGUI.ConsoleBox();
             this.btnPlay = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.About = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.Player_Profile = new System.Windows.Forms.Button();
             lblServerURL = new System.Windows.Forms.Label();
             lblOnlinePlayers = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -78,8 +82,9 @@
             this.onlinePlayers.FormattingEnabled = true;
             this.onlinePlayers.Location = new System.Drawing.Point(638, 42);
             this.onlinePlayers.Name = "onlinePlayers";
-            this.onlinePlayers.Size = new System.Drawing.Size(145, 394);
+            this.onlinePlayers.Size = new System.Drawing.Size(145, 407);
             this.onlinePlayers.TabIndex = 3;
+            this.onlinePlayers.SelectedIndexChanged += new System.EventHandler(this.onlinePlayers_SelectedIndexChanged);
             // 
             // ConsoleOutput
             // 
@@ -91,7 +96,7 @@
             this.ConsoleOutput.Name = "ConsoleOutput";
             this.ConsoleOutput.ReadOnly = true;
             this.ConsoleOutput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.ConsoleOutput.Size = new System.Drawing.Size(620, 397);
+            this.ConsoleOutput.Size = new System.Drawing.Size(620, 417);
             this.ConsoleOutput.TabIndex = 4;
             // 
             // ConsoleInput
@@ -112,11 +117,54 @@
             this.btnPlay.UseVisualStyleBackColor = true;
             this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(15, 472);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(105, 23);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Maps";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // About
+            // 
+            this.About.Location = new System.Drawing.Point(230, 472);
+            this.About.Name = "About";
+            this.About.Size = new System.Drawing.Size(91, 23);
+            this.About.TabIndex = 8;
+            this.About.Text = "About";
+            this.About.UseVisualStyleBackColor = true;
+            this.About.Click += new System.EventHandler(this.About_Click_1);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(126, 472);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(98, 23);
+            this.button3.TabIndex = 9;
+            this.button3.Text = "Op/Admin Chat";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // Player_Profile
+            // 
+            this.Player_Profile.Location = new System.Drawing.Point(638, 471);
+            this.Player_Profile.Name = "Player_Profile";
+            this.Player_Profile.Size = new System.Drawing.Size(144, 23);
+            this.Player_Profile.TabIndex = 10;
+            this.Player_Profile.Text = "Player Profile";
+            this.Player_Profile.UseVisualStyleBackColor = true;
+            this.Player_Profile.Click += new System.EventHandler(this.Player_Profile_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(795, 477);
+            this.ClientSize = new System.Drawing.Size(795, 497);
+            this.Controls.Add(this.Player_Profile);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.About);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnPlay);
             this.Controls.Add(this.ConsoleInput);
             this.Controls.Add(this.ConsoleOutput);
@@ -126,7 +174,6 @@
             this.Controls.Add(lblServerURL);
             this.Name = "MainForm";
             this.Text = "SpACraft";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -139,6 +186,10 @@
         private System.Windows.Forms.TextBox ConsoleOutput;
         private SpACraft.ServerGUI.ConsoleBox ConsoleInput;
         private System.Windows.Forms.Button btnPlay;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button About;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button Player_Profile;
     }
 }
 
