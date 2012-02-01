@@ -16,3 +16,12 @@ C:\Users\Matt\SPAcraft\SpACraft\ServerCLI\bin\Release\SpACraft.pdb
 C:\Users\Matt\SPAcraft\SpACraft\ServerCLI\obj\x86\Release\ResolveAssemblyReference.cache
 C:\Users\Matt\SPAcraft\SpACraft\ServerCLI\obj\x86\Release\ServerCLI.exe
 C:\Users\Matt\SPAcraft\SpACraft\ServerCLI\obj\x86\Release\ServerCLI.pdb
+C:\Users\Matt\SPAcraft\ServerCLI\bin\Release\ServerCLI.exe
+C:\Users\Matt\SPAcraft\ServerCLI\bin\Release\ServerCLI.pdb
+C:\Users\Matt\SPAcraft\ServerCLI\bin\Release\SpACraft.dll
+C:\Users\Matt\SPAcraft\ServerCLI\bin\Release\SpACraftGUI.dll
+C:\Users\Matt\SPAcraft\ServerCLI\bin\Release\SpACraftGUI.pdb
+C:\Users\Matt\SPAcraft\ServerCLI\bin\Release\SpACraft.pdb
+C:\Users\Matt\SPAcraft\ServerCLI\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Users\Matt\SPAcraft\ServerCLI\obj\x86\Release\ServerCLI.exe
+C:\Users\Matt\SPAcraft\ServerCLI\obj\x86\Release\ServerCLI.pdb

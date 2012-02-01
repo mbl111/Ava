@@ -43,11 +43,13 @@
     <Compile Include="Network\Heartbeat.cs" />
     <Compile Include="Player\Player.cs" />
     <Compile Include="Player\Player.Events.cs" />
+    <Compile Include="Player\PlayerInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpACraft.cs" />
     <Compile Include="System\Logger.cs" />
     <Compile Include="System\Server.cs" />
     <Compile Include="System\Server.Events.cs" />
+    <Compile Include="Utils\Color.cs" />
     <Compile Include="Utils\IClassy.cs" />
     <Compile Include="Utils\MonoCompat.cs" />
     <Compile Include="Utils\Paths.cs" />

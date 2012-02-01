@@ -36,3 +36,11 @@ C:\Users\Gerald\SpACraft\SpACraft\ServerGUI\bin\Release\SpACraftGUI.dll
 C:\Users\Gerald\SpACraft\SpACraft\ServerGUI\bin\Release\SpACraftGUI.pdb
 C:\Users\Matt\SPAcraft\SpACraft\ServerGUI\bin\Release\SpACraftGUI.dll
 C:\Users\Matt\SPAcraft\SpACraft\ServerGUI\bin\Release\SpACraftGUI.pdb
+C:\Users\Matt\SPAcraft\ServerGUI\bin\Release\ServerGUI.exe.config
+C:\Users\Matt\SPAcraft\ServerGUI\obj\x86\Release\ServerGUI.exe
+C:\Users\Matt\SPAcraft\ServerGUI\obj\x86\Release\ServerGUI.pdb
+C:\Users\Matt\SPAcraft\ServerGUI\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Users\Matt\SPAcraft\ServerGUI\obj\x86\Release\ServerGUI.MainForm.resources
+C:\Users\Matt\SPAcraft\ServerGUI\obj\x86\Release\ServerGUI.Properties.Resources.resources
+C:\Users\Matt\SPAcraft\ServerGUI\obj\x86\Release\GenerateResource.read.1.tlog
+C:\Users\Matt\SPAcraft\ServerGUI\obj\x86\Release\GenerateResource.write.1.tlog

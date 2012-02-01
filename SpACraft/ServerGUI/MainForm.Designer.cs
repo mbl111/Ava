@@ -62,8 +62,8 @@
             // 
             // ServerURL
             // 
-            this.ServerURL.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ServerURL.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.ServerURL.Location = new System.Drawing.Point(95, 12);
             this.ServerURL.Name = "ServerURL";
             this.ServerURL.ReadOnly = true;
@@ -73,8 +73,8 @@
             // 
             // onlinePlayers
             // 
-            this.onlinePlayers.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.onlinePlayers.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.onlinePlayers.FormattingEnabled = true;
             this.onlinePlayers.Location = new System.Drawing.Point(638, 42);
             this.onlinePlayers.Name = "onlinePlayers";
@@ -83,9 +83,9 @@
             // 
             // ConsoleOutput
             // 
-            this.ConsoleOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ConsoleOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.ConsoleOutput.Location = new System.Drawing.Point(12, 42);
             this.ConsoleOutput.Multiline = true;
             this.ConsoleOutput.Name = "ConsoleOutput";
@@ -126,6 +126,7 @@
             this.Controls.Add(lblServerURL);
             this.Name = "MainForm";
             this.Text = "SpACraft";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

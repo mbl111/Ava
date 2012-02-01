@@ -315,5 +315,7 @@ namespace ServerGUI
                 MessageBox.Show("Could not open server URL. Please copy/paste it manually.");
             }
         }
+
+        
     }
 }
