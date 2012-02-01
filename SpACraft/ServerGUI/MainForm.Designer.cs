@@ -84,6 +84,7 @@
             this.onlinePlayers.Name = "onlinePlayers";
             this.onlinePlayers.Size = new System.Drawing.Size(145, 407);
             this.onlinePlayers.TabIndex = 3;
+            this.onlinePlayers.Click += new System.EventHandler(this.onlinePlayers_Click);
             this.onlinePlayers.SelectedIndexChanged += new System.EventHandler(this.onlinePlayers_SelectedIndexChanged);
             // 
             // ConsoleOutput

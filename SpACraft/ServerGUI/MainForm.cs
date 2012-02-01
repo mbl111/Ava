@@ -318,7 +318,7 @@ namespace ServerGUI
 
         private void onlinePlayers_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void About_Click_1(object sender, EventArgs e)
@@ -328,7 +328,7 @@ namespace ServerGUI
 
         private void Player_Profile_Click(object sender, EventArgs e)
         {
-            new ProfileViewer(onlinePlayers.GetSelected);
+            ProfileViewer viewer = new ProfileViewer();
         }
 
         private void button1_Click(object sender, EventArgs e)
