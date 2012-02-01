@@ -1698,10 +1698,13 @@ namespace SpACraft
                 var e = new PlayerKickedEventArgs(this, player, reason, announce, recordToPlayerDB, context);
                 RaisePlayerKickedEvent(e);
             }
+
+            kickCount++;
         }
 
         #endregion
 
+        public int kickCount;
 
         [CanBeNull]
         public string LastUsedPlayerName { get; set; }

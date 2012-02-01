@@ -7,7 +7,7 @@ namespace SpACraft.Utils
 {
         /// <summary> Static class with definitions of Minecraft color codes,
         /// parsers, converters, and utilities. </summary>
-        public static class Color
+        public static class SpAColor
         {
             public const string Black = "&0",
                                 Navy = "&1",

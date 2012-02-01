@@ -7,7 +7,7 @@ using System.Threading;
 using JetBrains.Annotations;
 using System.IO;
 
-namespace fCraft
+namespace SpACraft
 {
     /// <summary> Object representing persistent state ("record") of a player, online or offline.
     /// There is exactly one PlayerInfo object for each known Minecraft account. All data is stored in the PlayerDB. </summary>
@@ -30,6 +30,12 @@ namespace fCraft
         /// <summary> Player's title. Fcraft only allows titles by changing the displayed name. This however would be a better system. </summary>
         [CanBeNull]
         public string TitleColor;
+
+        [CanBeNull]
+        public string LoginMessage;
+
+        [CanBeNull]
+        public string LogoutMessage;
 
         /// <summary> Player's password. This allows for a better system than fcrafts authing which broke horribly when we tried it ok the 31/1/2012. </summary>
         [CanBeNull]
