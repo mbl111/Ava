@@ -57,7 +57,7 @@
     <Compile Include="System\Logger.cs" />
     <Compile Include="System\Server.cs" />
     <Compile Include="System\Server.Events.cs" />
-    <Compile Include="Utils\SpAColor.cs" />
+    <Compile Include="Utils\Color.cs" />
     <Compile Include="Utils\IClassy.cs" />
     <Compile Include="Utils\MonoCompat.cs" />
     <Compile Include="Utils\Paths.cs" />

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -58,7 +57,7 @@ namespace SpACraft
             this.loginmessage.Text = this.player.Info.LoginMessage;
             this.logoutmessage.Text = this.player.Info.LogoutMessage;
             this.playertitle.Text = this.player.Info.Title;
-            this.titlecolor.SelectedIndex = SpAColor.ParseToIndex(this.player.Info.TitleColor);
+            this.titlecolor.SelectedIndex = Color.ParseToIndex(this.player.Info.TitleColor);
         }
     }
 }
