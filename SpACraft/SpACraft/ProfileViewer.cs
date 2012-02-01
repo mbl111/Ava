@@ -26,26 +26,6 @@ namespace SpACraft
             update_window();
         }
 
-        private void Map_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Kickslabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void kicksbox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void update_window()
         {
             this.rank.Text = this.player.Info.Rank.name;
@@ -58,6 +38,7 @@ namespace SpACraft
             this.logoutmessage.Text = this.player.Info.LogoutMessage;
             this.playertitle.Text = this.player.Info.Title;
             this.titlecolor.SelectedIndex = Color.ParseToIndex(this.player.Info.TitleColor);
+
         }
     }
 }
