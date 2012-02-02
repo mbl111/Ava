@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-// Copyright 2009-2012 Matvei Stefarov <me@matvei.org>
+﻿// Copyright 2009-2012 Matvei Stefarov <me@matvei.org>
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -905,7 +900,7 @@ namespace SpACraft
                     Swap(ref p1.MutedUntil, ref p2.MutedUntil);
                     //Swap( ref p1.Name, ref p2.Name );
                     //Swap( ref p1.Online, ref p2.Online );
-                    Swap(ref p1.Password, ref p2.Password);
+                    Swap(ref p1.IRCPassword, ref p2.IRCPassword);
                     //Swap( ref p1.PlayerObject, ref p2.PlayerObject );
                     Swap(ref p1.PreviousRank, ref p2.PreviousRank);
 

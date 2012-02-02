@@ -7,7 +7,6 @@ using System.Net.Cache;
 using System.Text;
 using SpACraft.Events;
 using JetBrains.Annotations;
-using SpACraft.Events;
 using SpACraft;
 
 namespace SpACraft

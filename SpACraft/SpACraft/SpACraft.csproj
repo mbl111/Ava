@@ -56,6 +56,10 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpACraft.cs" />
+    <Compile Include="System\Config.cs" />
+    <Compile Include="System\ConfigKey.cs" />
+    <Compile Include="System\ConfigKey.Metadata.cs" />
+    <Compile Include="System\ConfigSection.cs" />
     <Compile Include="System\Logger.cs" />
     <Compile Include="System\Server.cs" />
     <Compile Include="System\Server.Events.cs" />

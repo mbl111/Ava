@@ -255,18 +255,18 @@ namespace ServerGUI
                 else
                 {
                     onlinePlayers.Items.Clear();
-                    Player[] playerListCache = Server.onlinePlayers.OrderBy(p => p.Info.Rank.Index).ToArray();
-                    foreach (Player player in playerListCache)
-                    {
-                        onlinePlayers.Items.Add(player.Info.Rank.Name + " - " + player.Name);
-                    }
+                    //Player[] playerListCache = Server.onlinePlayers.OrderBy(p => p.Info.Rank.Index).ToArray();
+                   // foreach (Player player in playerListCache)
+                   // {
+                    //    onlinePlayers.Items.Add(player.Info.Rank.Name + " - " + player.Name);
+                   // }
                 }
             }
             catch (ObjectDisposedException)
             {
             }
             catch (InvalidOperationException) { }
-        }
+       }
 
 
         private void console_Enter()
@@ -333,7 +333,7 @@ namespace ServerGUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            new MapViewer();
+            //new MapViewer();
         }
 
         

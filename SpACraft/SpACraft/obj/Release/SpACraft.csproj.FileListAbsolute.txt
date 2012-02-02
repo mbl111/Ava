@@ -11,3 +11,6 @@ C:\Users\Gerald\SpACraft\SpACraft\SpACraft\bin\Release\SpACraft.pdb
 C:\Users\Matt\SPAcraft\SpACraft\obj\Release\ResolveAssemblyReference.cache
 C:\Users\Matt\SPAcraft\SpACraft\obj\Release\SpACraft.dll
 C:\Users\Matt\SPAcraft\SpACraft\obj\Release\SpACraft.pdb
+C:\Users\Matt\SPAcraft\SpACraft\obj\Release\SpACraft.ProfileViewer.resources
+C:\Users\Matt\SPAcraft\SpACraft\obj\Release\GenerateResource.read.1.tlog
+C:\Users\Matt\SPAcraft\SpACraft\obj\Release\GenerateResource.write.1.tlog

@@ -467,7 +467,7 @@ namespace SpACraft
             fields[39].ToDateTime(ref info.FrozenOn);
             fields[40].ToDateTime(ref info.MutedUntil);
             if (fields[41].Length > 0) info.MutedBy = Unescape(fields[41]);
-            info.Password = Unescape(fields[42]);
+            info.IRCPassword = Unescape(fields[42]);
             // fields[43] is "online", and is ignored
 
             byte bandwidthUseModeCode;
@@ -618,7 +618,7 @@ namespace SpACraft
             fields[39].ToDateTimeLegacy(ref info.FrozenOn);
             fields[40].ToDateTimeLegacy(ref info.MutedUntil);
             if (fields[41].Length > 0) info.MutedBy = Unescape(fields[41]);
-            info.Password = Unescape(fields[42]);
+            info.IRCPassword = Unescape(fields[42]);
             // fields[43] is "online", and is ignored
 
             byte bandwidthUseModeCode;
@@ -786,7 +786,7 @@ namespace SpACraft
                     DateTimeUtil.TryParseLocalDate(fields[39], out info.FrozenOn);
                     DateTimeUtil.TryParseLocalDate(fields[40], out info.MutedUntil);
                     if (fields[41].Length > 0) info.MutedBy = UnescapeOldFormat(fields[41]);
-                    info.Password = UnescapeOldFormat(fields[42]);
+                    info.IRCPassword = UnescapeOldFormat(fields[42]);
                     // fields[43] is "online", and is ignored
                 }
 
@@ -949,7 +949,7 @@ namespace SpACraft
             }
 
             // Misc
-            info.Password = ReadString(reader);
+            info.IRCPassword = ReadString(reader);
             info.LastModified = DateTimeUtil.ToDateTime(reader.ReadUInt32());
             info.IsOnline = reader.ReadBoolean();
             info.IsHidden = reader.ReadBoolean();
@@ -1126,7 +1126,7 @@ namespace SpACraft
                 sb.Append(',', 2); // 40-41
             }
 
-            sb.AppendEscaped(Password).Append(','); // 42
+            sb.AppendEscaped(IRCPassword).Append(','); // 42
 
             if (IsOnline) sb.Append('o'); // 43
             sb.Append(',');
@@ -1239,7 +1239,7 @@ namespace SpACraft
             }
 
             // Misc
-            WriteString(writer, Password);
+            WriteString(writer, IRCPassword);
             writer.Write((uint)LastModified.ToUnixTime());
             writer.Write(IsOnline); // 39
             writer.Write(IsHidden); // 40
@@ -1554,7 +1554,7 @@ namespace SpACraft
         #region Unfinished / Not Implemented
 
         /// <summary> Not implemented (IRC/server password hash). </summary>
-        public string Password = ""; // TODO
+        public string IRCPassword = ""; // TODO
 
         public DateTime LastModified; // TODO
 

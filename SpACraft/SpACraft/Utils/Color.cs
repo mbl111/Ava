@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace SpACraft.Utils
+namespace SpACraft
 {
         /// <summary> Static class with definitions of Minecraft color codes,
         /// parsers, converters, and utilities. </summary>

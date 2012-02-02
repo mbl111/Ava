@@ -5,7 +5,6 @@ using System.Linq;
 using System.Net;
 using System.Net.Cache;
 using System.Threading;
-using SpACraft.Drawing;
 using SpACraft.Events;
 using JetBrains.Annotations;
 

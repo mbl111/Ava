@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-// Copyright 2009-2012 Matvei Stefarov <me@matvei.org>
+﻿// Copyright 2009-2012 Matvei Stefarov <me@matvei.org>
 using System;
 
 // This file condenses some of the player-related enumerations
@@ -91,7 +86,7 @@ namespace SpACraft
 
         /// <summary> Security password..
         /// This allows players to connect from anywhere but they need a password to use commands</summary>
-        Balanced,
+        Password,
 
         /// <summary> Strict verification checks.
         /// If name cannot be verified, player is kicked and a failed login attempt is logged.
