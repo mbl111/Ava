@@ -242,6 +242,7 @@
             this.Slap.TabIndex = 7;
             this.Slap.Text = "Slap";
             this.Slap.UseVisualStyleBackColor = true;
+            this.Slap.Click += new System.EventHandler(this.Slap_Click);
             // 
             // Kill
             // 
@@ -251,6 +252,7 @@
             this.Kill.TabIndex = 6;
             this.Kill.Text = "Kill";
             this.Kill.UseVisualStyleBackColor = true;
+            this.Kill.Click += new System.EventHandler(this.Kill_Click);
             // 
             // Jail
             // 
@@ -278,6 +280,7 @@
             this.IPban.TabIndex = 3;
             this.IPban.Text = "IP Ban";
             this.IPban.UseVisualStyleBackColor = true;
+            this.IPban.Click += new System.EventHandler(this.IPban_Click);
             // 
             // Freeze
             // 
@@ -296,6 +299,7 @@
             this.Ban.TabIndex = 1;
             this.Ban.Text = "Ban";
             this.Ban.UseVisualStyleBackColor = true;
+            this.Ban.Click += new System.EventHandler(this.Ban_Click);
             // 
             // Kick
             // 
@@ -305,6 +309,7 @@
             this.Kick.TabIndex = 0;
             this.Kick.Text = "Kick";
             this.Kick.UseVisualStyleBackColor = true;
+            this.Kick.Click += new System.EventHandler(this.Kick_Click);
             // 
             // panel3
             // 

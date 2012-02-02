@@ -9,6 +9,8 @@ using SpACraft.Utils;
 
 namespace SpACraft
 {
+    //TODO: Freeze, warn, jail, kill, mute. 
+    //Send message, update details button, rank box.
     public partial class ProfileViewer : Form
     {
 
@@ -64,6 +66,40 @@ namespace SpACraft
         private void label5_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Ban_Click(object sender, EventArgs e)
+        {
+            //ban code here
+            this.player.Kick(this.player, "Banned by Console", LeaveReason.Ban, true, false, true);
+            logLine(this.player.Name + " was banned!");
+            Logger.LogToConsole(this.player.Name + " was banned by Console");
+            Server.Message(this.player.Name + " was banned by Console");
+        }
+
+        private void IPban_Click(object sender, EventArgs e)
+        {
+            //ban code here
+            this.player.Kick(this.player, "IP Banned by Console", LeaveReason.BanIP, true, false, true);
+            logLine(this.player.Name + " was IP banned!");
+            Logger.LogToConsole(this.player.Name + " was IP Banned by Console");
+            Server.Message(this.player.Name + " was IP Banned by Console");
+        }
+
+        private void Kick_Click(object sender, EventArgs e)
+        {
+            this.player.Kick(this.player,"Kicked by Console", LeaveReason.Kick, true, false, true);
+            logLine(this.player.Name + " was IP banned!");
+            Logger.LogToConsole(this.player.Name + " was kicked by Console");
+            Server.Message(this.player.Name + " was kicked by Console");
+        }
+
+        private void Slap_Click(object sender, EventArgs e)
+        {
+            //slap code here
+            logLine(this.player.Name + " was slapped");
+            Logger.LogToConsole(this.player.Name + " was slapped by Console");
+            Server.Message(this.player.Name + " was slapped by Console");
         }
     }
 }
