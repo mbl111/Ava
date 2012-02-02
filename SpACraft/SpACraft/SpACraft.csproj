@@ -45,6 +45,8 @@
     <Compile Include="Network\Heartbeat.cs" />
     <Compile Include="Player\Player.cs" />
     <Compile Include="Player\Player.Events.cs" />
+    <Compile Include="Player\PlayerConstants.cs" />
+    <Compile Include="Player\PlayerDB.cs" />
     <Compile Include="Player\PlayerInfo.cs" />
     <Compile Include="ProfileViewer.cs">
       <SubType>Form</SubType>
