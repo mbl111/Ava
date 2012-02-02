@@ -82,9 +82,8 @@
             this.onlinePlayers.FormattingEnabled = true;
             this.onlinePlayers.Location = new System.Drawing.Point(638, 42);
             this.onlinePlayers.Name = "onlinePlayers";
-            this.onlinePlayers.Size = new System.Drawing.Size(145, 407);
+            this.onlinePlayers.Size = new System.Drawing.Size(145, 394);
             this.onlinePlayers.TabIndex = 3;
-            this.onlinePlayers.Click += new System.EventHandler(this.onlinePlayers_Click);
             this.onlinePlayers.SelectedIndexChanged += new System.EventHandler(this.onlinePlayers_SelectedIndexChanged);
             // 
             // ConsoleOutput
@@ -97,7 +96,7 @@
             this.ConsoleOutput.Name = "ConsoleOutput";
             this.ConsoleOutput.ReadOnly = true;
             this.ConsoleOutput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.ConsoleOutput.Size = new System.Drawing.Size(620, 417);
+            this.ConsoleOutput.Size = new System.Drawing.Size(620, 397);
             this.ConsoleOutput.TabIndex = 4;
             // 
             // ConsoleInput

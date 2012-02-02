@@ -38,37 +38,40 @@
             this.playertitle = new System.Windows.Forms.TextBox();
             this.Name = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.upd_details = new System.Windows.Forms.Button();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.Displayname = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.Kick = new System.Windows.Forms.Button();
-            this.Ban = new System.Windows.Forms.Button();
-            this.Freeze = new System.Windows.Forms.Button();
-            this.IPban = new System.Windows.Forms.Button();
-            this.Warn = new System.Windows.Forms.Button();
-            this.Jail = new System.Windows.Forms.Button();
-            this.Kill = new System.Windows.Forms.Button();
+            this.mute = new System.Windows.Forms.Button();
             this.Slap = new System.Windows.Forms.Button();
+            this.Kill = new System.Windows.Forms.Button();
+            this.Jail = new System.Windows.Forms.Button();
+            this.Warn = new System.Windows.Forms.Button();
+            this.IPban = new System.Windows.Forms.Button();
+            this.Freeze = new System.Windows.Forms.Button();
+            this.Ban = new System.Windows.Forms.Button();
+            this.Kick = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.ranklabel = new System.Windows.Forms.Label();
-            this.rank = new System.Windows.Forms.TextBox();
-            this.iptext = new System.Windows.Forms.TextBox();
-            this.IPLabel = new System.Windows.Forms.Label();
-            this.kicksbox = new System.Windows.Forms.TextBox();
-            this.Kickslabel = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.loggedinlabel = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.loggedinforlabel = new System.Windows.Forms.Label();
-            this.mute = new System.Windows.Forms.Button();
-            this.Displayname = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.loggedinlabel = new System.Windows.Forms.Label();
+            this.kicksbox = new System.Windows.Forms.TextBox();
+            this.Kickslabel = new System.Windows.Forms.Label();
+            this.iptext = new System.Windows.Forms.TextBox();
+            this.IPLabel = new System.Windows.Forms.Label();
+            this.rank = new System.Windows.Forms.TextBox();
+            this.ranklabel = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.rankbutton = new System.Windows.Forms.Button();
             this.Rankcombobox = new System.Windows.Forms.ComboBox();
+            this.rankbutton = new System.Windows.Forms.Button();
             this.privatemessagesender = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
             this.sendpm = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.feedback = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -153,6 +156,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.upd_details);
             this.panel1.Controls.Add(this.textBox3);
             this.panel1.Controls.Add(this.Displayname);
             this.panel1.Controls.Add(this.loginmessage);
@@ -167,6 +171,32 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(407, 100);
             this.panel1.TabIndex = 11;
+            // 
+            // upd_details
+            // 
+            this.upd_details.Location = new System.Drawing.Point(239, 1);
+            this.upd_details.Name = "upd_details";
+            this.upd_details.Size = new System.Drawing.Size(153, 23);
+            this.upd_details.TabIndex = 10;
+            this.upd_details.Text = "Update Details";
+            this.upd_details.UseVisualStyleBackColor = true;
+            this.upd_details.Click += new System.EventHandler(this.upd_details_Click);
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(107, 3);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(122, 20);
+            this.textBox3.TabIndex = 9;
+            // 
+            // Displayname
+            // 
+            this.Displayname.AutoSize = true;
+            this.Displayname.Location = new System.Drawing.Point(4, 6);
+            this.Displayname.Name = "Displayname";
+            this.Displayname.Size = new System.Drawing.Size(75, 13);
+            this.Displayname.TabIndex = 8;
+            this.Displayname.Text = "Display Name:";
             // 
             // comboBox2
             // 
@@ -195,60 +225,23 @@
             this.panel2.Size = new System.Drawing.Size(249, 93);
             this.panel2.TabIndex = 14;
             // 
-            // Kick
+            // mute
             // 
-            this.Kick.Location = new System.Drawing.Point(166, 5);
-            this.Kick.Name = "Kick";
-            this.Kick.Size = new System.Drawing.Size(75, 23);
-            this.Kick.TabIndex = 0;
-            this.Kick.Text = "Kick";
-            this.Kick.UseVisualStyleBackColor = true;
+            this.mute.Location = new System.Drawing.Point(166, 63);
+            this.mute.Name = "mute";
+            this.mute.Size = new System.Drawing.Size(75, 23);
+            this.mute.TabIndex = 8;
+            this.mute.Text = "Mute";
+            this.mute.UseVisualStyleBackColor = true;
             // 
-            // Ban
+            // Slap
             // 
-            this.Ban.Location = new System.Drawing.Point(4, 5);
-            this.Ban.Name = "Ban";
-            this.Ban.Size = new System.Drawing.Size(75, 23);
-            this.Ban.TabIndex = 1;
-            this.Ban.Text = "Ban";
-            this.Ban.UseVisualStyleBackColor = true;
-            this.Ban.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // Freeze
-            // 
-            this.Freeze.Location = new System.Drawing.Point(85, 34);
-            this.Freeze.Name = "Freeze";
-            this.Freeze.Size = new System.Drawing.Size(75, 23);
-            this.Freeze.TabIndex = 2;
-            this.Freeze.Text = "Freeze";
-            this.Freeze.UseVisualStyleBackColor = true;
-            // 
-            // IPban
-            // 
-            this.IPban.Location = new System.Drawing.Point(85, 5);
-            this.IPban.Name = "IPban";
-            this.IPban.Size = new System.Drawing.Size(75, 23);
-            this.IPban.TabIndex = 3;
-            this.IPban.Text = "IP Ban";
-            this.IPban.UseVisualStyleBackColor = true;
-            // 
-            // Warn
-            // 
-            this.Warn.Location = new System.Drawing.Point(166, 34);
-            this.Warn.Name = "Warn";
-            this.Warn.Size = new System.Drawing.Size(75, 23);
-            this.Warn.TabIndex = 4;
-            this.Warn.Text = "Warn";
-            this.Warn.UseVisualStyleBackColor = true;
-            // 
-            // Jail
-            // 
-            this.Jail.Location = new System.Drawing.Point(4, 63);
-            this.Jail.Name = "Jail";
-            this.Jail.Size = new System.Drawing.Size(75, 23);
-            this.Jail.TabIndex = 5;
-            this.Jail.Text = "Jail";
-            this.Jail.UseVisualStyleBackColor = true;
+            this.Slap.Location = new System.Drawing.Point(4, 34);
+            this.Slap.Name = "Slap";
+            this.Slap.Size = new System.Drawing.Size(75, 23);
+            this.Slap.TabIndex = 7;
+            this.Slap.Text = "Slap";
+            this.Slap.UseVisualStyleBackColor = true;
             // 
             // Kill
             // 
@@ -259,14 +252,59 @@
             this.Kill.Text = "Kill";
             this.Kill.UseVisualStyleBackColor = true;
             // 
-            // Slap
+            // Jail
             // 
-            this.Slap.Location = new System.Drawing.Point(4, 34);
-            this.Slap.Name = "Slap";
-            this.Slap.Size = new System.Drawing.Size(75, 23);
-            this.Slap.TabIndex = 7;
-            this.Slap.Text = "Slap";
-            this.Slap.UseVisualStyleBackColor = true;
+            this.Jail.Location = new System.Drawing.Point(4, 63);
+            this.Jail.Name = "Jail";
+            this.Jail.Size = new System.Drawing.Size(75, 23);
+            this.Jail.TabIndex = 5;
+            this.Jail.Text = "Jail";
+            this.Jail.UseVisualStyleBackColor = true;
+            // 
+            // Warn
+            // 
+            this.Warn.Location = new System.Drawing.Point(166, 34);
+            this.Warn.Name = "Warn";
+            this.Warn.Size = new System.Drawing.Size(75, 23);
+            this.Warn.TabIndex = 4;
+            this.Warn.Text = "Warn";
+            this.Warn.UseVisualStyleBackColor = true;
+            // 
+            // IPban
+            // 
+            this.IPban.Location = new System.Drawing.Point(85, 5);
+            this.IPban.Name = "IPban";
+            this.IPban.Size = new System.Drawing.Size(75, 23);
+            this.IPban.TabIndex = 3;
+            this.IPban.Text = "IP Ban";
+            this.IPban.UseVisualStyleBackColor = true;
+            // 
+            // Freeze
+            // 
+            this.Freeze.Location = new System.Drawing.Point(85, 34);
+            this.Freeze.Name = "Freeze";
+            this.Freeze.Size = new System.Drawing.Size(75, 23);
+            this.Freeze.TabIndex = 2;
+            this.Freeze.Text = "Freeze";
+            this.Freeze.UseVisualStyleBackColor = true;
+            // 
+            // Ban
+            // 
+            this.Ban.Location = new System.Drawing.Point(4, 5);
+            this.Ban.Name = "Ban";
+            this.Ban.Size = new System.Drawing.Size(75, 23);
+            this.Ban.TabIndex = 1;
+            this.Ban.Text = "Ban";
+            this.Ban.UseVisualStyleBackColor = true;
+            // 
+            // Kick
+            // 
+            this.Kick.Location = new System.Drawing.Point(166, 5);
+            this.Kick.Name = "Kick";
+            this.Kick.Size = new System.Drawing.Size(75, 23);
+            this.Kick.TabIndex = 0;
+            this.Kick.Text = "Kick";
+            this.Kick.UseVisualStyleBackColor = true;
             // 
             // panel3
             // 
@@ -288,77 +326,11 @@
             this.panel3.Size = new System.Drawing.Size(493, 69);
             this.panel3.TabIndex = 15;
             // 
-            // ranklabel
-            // 
-            this.ranklabel.AutoSize = true;
-            this.ranklabel.Location = new System.Drawing.Point(210, 7);
-            this.ranklabel.Name = "ranklabel";
-            this.ranklabel.Size = new System.Drawing.Size(36, 13);
-            this.ranklabel.TabIndex = 13;
-            this.ranklabel.Text = "Rank:";
-            // 
-            // rank
-            // 
-            this.rank.Location = new System.Drawing.Point(249, 3);
-            this.rank.Name = "rank";
-            this.rank.Size = new System.Drawing.Size(133, 20);
-            this.rank.TabIndex = 14;
-            // 
-            // iptext
-            // 
-            this.iptext.Location = new System.Drawing.Point(31, 30);
-            this.iptext.Name = "iptext";
-            this.iptext.Size = new System.Drawing.Size(146, 20);
-            this.iptext.TabIndex = 17;
-            // 
-            // IPLabel
-            // 
-            this.IPLabel.AutoSize = true;
-            this.IPLabel.Location = new System.Drawing.Point(5, 33);
-            this.IPLabel.Name = "IPLabel";
-            this.IPLabel.Size = new System.Drawing.Size(20, 13);
-            this.IPLabel.TabIndex = 16;
-            this.IPLabel.Text = "IP:";
-            // 
-            // kicksbox
-            // 
-            this.kicksbox.Location = new System.Drawing.Point(428, 3);
-            this.kicksbox.Name = "kicksbox";
-            this.kicksbox.Size = new System.Drawing.Size(55, 20);
-            this.kicksbox.TabIndex = 19;
-            this.kicksbox.TextChanged += new System.EventHandler(this.kicksbox_TextChanged);
-            // 
-            // Kickslabel
-            // 
-            this.Kickslabel.AutoSize = true;
-            this.Kickslabel.Location = new System.Drawing.Point(389, 7);
-            this.Kickslabel.Name = "Kickslabel";
-            this.Kickslabel.Size = new System.Drawing.Size(36, 13);
-            this.Kickslabel.TabIndex = 18;
-            this.Kickslabel.Text = "Kicks:";
-            this.Kickslabel.Click += new System.EventHandler(this.Kickslabel_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(239, 31);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(133, 20);
-            this.textBox1.TabIndex = 21;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // loggedinlabel
-            // 
-            this.loggedinlabel.AutoSize = true;
-            this.loggedinlabel.Location = new System.Drawing.Point(181, 34);
-            this.loggedinlabel.Name = "loggedinlabel";
-            this.loggedinlabel.Size = new System.Drawing.Size(57, 13);
-            this.loggedinlabel.TabIndex = 20;
-            this.loggedinlabel.Text = "Logged in:";
-            // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(411, 33);
             this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(72, 20);
             this.textBox2.TabIndex = 23;
             // 
@@ -371,30 +343,73 @@
             this.loggedinforlabel.TabIndex = 22;
             this.loggedinforlabel.Text = "For:";
             // 
-            // mute
+            // textBox1
             // 
-            this.mute.Location = new System.Drawing.Point(166, 63);
-            this.mute.Name = "mute";
-            this.mute.Size = new System.Drawing.Size(75, 23);
-            this.mute.TabIndex = 8;
-            this.mute.Text = "Mute";
-            this.mute.UseVisualStyleBackColor = true;
+            this.textBox1.Location = new System.Drawing.Point(239, 31);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(133, 20);
+            this.textBox1.TabIndex = 21;
             // 
-            // Displayname
+            // loggedinlabel
             // 
-            this.Displayname.AutoSize = true;
-            this.Displayname.Location = new System.Drawing.Point(4, 6);
-            this.Displayname.Name = "Displayname";
-            this.Displayname.Size = new System.Drawing.Size(75, 13);
-            this.Displayname.TabIndex = 8;
-            this.Displayname.Text = "Display Name:";
+            this.loggedinlabel.AutoSize = true;
+            this.loggedinlabel.Location = new System.Drawing.Point(181, 34);
+            this.loggedinlabel.Name = "loggedinlabel";
+            this.loggedinlabel.Size = new System.Drawing.Size(57, 13);
+            this.loggedinlabel.TabIndex = 20;
+            this.loggedinlabel.Text = "Logged in:";
             // 
-            // textBox3
+            // kicksbox
             // 
-            this.textBox3.Location = new System.Drawing.Point(107, 3);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(122, 20);
-            this.textBox3.TabIndex = 9;
+            this.kicksbox.Location = new System.Drawing.Point(428, 3);
+            this.kicksbox.Name = "kicksbox";
+            this.kicksbox.ReadOnly = true;
+            this.kicksbox.Size = new System.Drawing.Size(55, 20);
+            this.kicksbox.TabIndex = 19;
+            // 
+            // Kickslabel
+            // 
+            this.Kickslabel.AutoSize = true;
+            this.Kickslabel.Location = new System.Drawing.Point(389, 7);
+            this.Kickslabel.Name = "Kickslabel";
+            this.Kickslabel.Size = new System.Drawing.Size(36, 13);
+            this.Kickslabel.TabIndex = 18;
+            this.Kickslabel.Text = "Kicks:";
+            // 
+            // iptext
+            // 
+            this.iptext.Location = new System.Drawing.Point(31, 30);
+            this.iptext.Name = "iptext";
+            this.iptext.ReadOnly = true;
+            this.iptext.Size = new System.Drawing.Size(146, 20);
+            this.iptext.TabIndex = 17;
+            // 
+            // IPLabel
+            // 
+            this.IPLabel.AutoSize = true;
+            this.IPLabel.Location = new System.Drawing.Point(5, 33);
+            this.IPLabel.Name = "IPLabel";
+            this.IPLabel.Size = new System.Drawing.Size(20, 13);
+            this.IPLabel.TabIndex = 16;
+            this.IPLabel.Text = "IP:";
+            // 
+            // rank
+            // 
+            this.rank.Location = new System.Drawing.Point(249, 3);
+            this.rank.Name = "rank";
+            this.rank.ReadOnly = true;
+            this.rank.Size = new System.Drawing.Size(133, 20);
+            this.rank.TabIndex = 14;
+            // 
+            // ranklabel
+            // 
+            this.ranklabel.AutoSize = true;
+            this.ranklabel.Location = new System.Drawing.Point(210, 7);
+            this.ranklabel.Name = "ranklabel";
+            this.ranklabel.Size = new System.Drawing.Size(36, 13);
+            this.ranklabel.TabIndex = 13;
+            this.ranklabel.Text = "Rank:";
             // 
             // panel4
             // 
@@ -406,6 +421,14 @@
             this.panel4.Size = new System.Drawing.Size(162, 69);
             this.panel4.TabIndex = 16;
             // 
+            // Rankcombobox
+            // 
+            this.Rankcombobox.FormattingEnabled = true;
+            this.Rankcombobox.Location = new System.Drawing.Point(3, 7);
+            this.Rankcombobox.Name = "Rankcombobox";
+            this.Rankcombobox.Size = new System.Drawing.Size(151, 21);
+            this.Rankcombobox.TabIndex = 1;
+            // 
             // rankbutton
             // 
             this.rankbutton.Location = new System.Drawing.Point(21, 33);
@@ -414,14 +437,6 @@
             this.rankbutton.TabIndex = 0;
             this.rankbutton.Text = "Rank";
             this.rankbutton.UseVisualStyleBackColor = true;
-            // 
-            // Rankcombobox
-            // 
-            this.Rankcombobox.FormattingEnabled = true;
-            this.Rankcombobox.Location = new System.Drawing.Point(3, 7);
-            this.Rankcombobox.Name = "Rankcombobox";
-            this.Rankcombobox.Size = new System.Drawing.Size(151, 21);
-            this.Rankcombobox.TabIndex = 1;
             // 
             // privatemessagesender
             // 
@@ -441,15 +456,6 @@
             this.panel5.Size = new System.Drawing.Size(661, 29);
             this.panel5.TabIndex = 18;
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(2, 3);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(86, 13);
-            this.label4.TabIndex = 18;
-            this.label4.Text = "Private Message";
-            // 
             // sendpm
             // 
             this.sendpm.Location = new System.Drawing.Point(551, 1);
@@ -459,11 +465,42 @@
             this.sendpm.Text = "Send PM";
             this.sendpm.UseVisualStyleBackColor = true;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(2, 3);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(86, 13);
+            this.label4.TabIndex = 18;
+            this.label4.Text = "Private Message";
+            // 
+            // feedback
+            // 
+            this.feedback.Location = new System.Drawing.Point(14, 230);
+            this.feedback.Multiline = true;
+            this.feedback.Name = "feedback";
+            this.feedback.ReadOnly = true;
+            this.feedback.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.feedback.Size = new System.Drawing.Size(662, 160);
+            this.feedback.TabIndex = 19;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(188, 404);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(312, 13);
+            this.label5.TabIndex = 20;
+            this.label5.Text = "NOTE: Private messages can only be read on the main console. ";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
             // ProfileViewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(690, 230);
+            this.ClientSize = new System.Drawing.Size(690, 426);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.feedback);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
@@ -480,6 +517,7 @@
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -526,5 +564,8 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button sendpm;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button upd_details;
+        private System.Windows.Forms.TextBox feedback;
+        private System.Windows.Forms.Label label5;
     }
 }
